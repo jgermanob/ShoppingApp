@@ -16,8 +16,18 @@ class PaymentViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
+    
+    //Custom function to delete products from shopping car
+    @IBAction func deleteProduct(_ sender: UIButton) {
+        let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
+        let indexPath = tableView.indexPathForRow(at: buttonPosition)!
+        shoppingCar.products.remove(at: indexPath.row)
+        tableView.reloadData()
+    }
+    
 }
 
 extension PaymentViewController: UITableViewDelegate, UITableViewDataSource{
@@ -40,6 +50,13 @@ extension PaymentViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height = CGFloat(125)
         return height
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            self.shoppingCar.products.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
     }
 }
 

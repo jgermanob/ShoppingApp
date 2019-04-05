@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     var products = [Sneakers]()
     var product = Sneakers()
     let shoppingCar = ShoppingCar()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         shoppingTableView.delegate = self
