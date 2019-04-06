@@ -10,3 +10,4 @@ el resumen de la compra, así como el total a pagar.
  - Protocolos (UITableViewDelegate y UITableViewDataSource)
  - Extensiones
  - Inyección de código
+ - Closures
