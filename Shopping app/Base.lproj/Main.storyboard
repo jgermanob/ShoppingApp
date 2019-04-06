@@ -58,20 +58,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6Z-LT-rMW">
-                                <rect key="frame" x="135" y="742" width="144" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Ver mis compras"/>
-                                <connections>
-                                    <action selector="goPayment:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zqP-pk-MD7"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Shopping" id="gYx-fN-gvl"/>
+                    <navigationItem key="navigationItem" title="My Shopping" id="gYx-fN-gvl">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="gVV-gB-v5V">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="v6Z-LT-rMW">
+                                <rect key="frame" x="225" y="56" width="144" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Mis compras"/>
+                                <connections>
+                                    <action selector="goPayment:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zqP-pk-MD7"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="shoppingButton" destination="v6Z-LT-rMW" id="UHt-9Q-38L"/>
                         <outlet property="shoppingTableView" destination="qTd-Tk-kxc" id="qzR-c8-CSE"/>
                         <segue destination="5k9-Gi-1lt" kind="show" identifier="detailSegue" id="4l4-Sq-rrT"/>
                         <segue destination="k8u-yt-u3M" kind="show" identifier="PaymentSegue" id="mJ6-Z4-xzN"/>

@@ -24,8 +24,15 @@ class PaymentViewController: UIViewController {
     @IBAction func deleteProduct(_ sender: UIButton) {
         let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
         let indexPath = tableView.indexPathForRow(at: buttonPosition)!
-        shoppingCar.products.remove(at: indexPath.row)
-        tableView.reloadData()
+        
+        //Adding alert to confirm product delete
+        let alert = UIAlertController(title: "Eliminar producto", message: "¿Deseas eliminar este producto del carrito?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            self.shoppingCar.products.remove(at: indexPath.row)
+            self.tableView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
     
 }

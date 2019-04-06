@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var shoppingTableView: UITableView!
+    @IBOutlet weak var shoppingButton: UIButton!
     
     var products = [Sneakers]()
     var product = Sneakers()
@@ -20,6 +21,12 @@ class ViewController: UIViewController {
         shoppingTableView.dataSource = self
         shoppingTableView.backgroundColor = .clear
         products = getSneakers()
+        
+        //goPayment button settings
+        
+        shoppingButton.tintColor = .white
+        shoppingButton.layer.cornerRadius = 10
+        
         
     }
     
@@ -38,11 +45,6 @@ class ViewController: UIViewController {
         return sneakers
     }
     
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let detailViewController = segue.destination as? DetailViewController
-        detailViewController?.product = self.product
-    }*/
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue"{
             let detailViewController = segue.destination as! DetailViewController
@@ -59,6 +61,8 @@ class ViewController: UIViewController {
     @IBAction func goPayment(_ sender: UIButton) {
         performSegue(withIdentifier: "PaymentSegue", sender: self)
     }
+    
+
     
 }
 
