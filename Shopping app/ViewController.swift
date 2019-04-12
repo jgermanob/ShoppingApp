@@ -23,9 +23,12 @@ class ViewController: UIViewController {
         products = getSneakers()
         
         //goPayment button settings
-        
         shoppingButton.tintColor = .white
         shoppingButton.layer.cornerRadius = 10
+        shoppingButton.backgroundImage
+        shoppingButton.setImage(UIImage(named: "buy"), for: .normal)
+        shoppingButton.titleLabel?.text = "Prro"
+        
         
         
     }

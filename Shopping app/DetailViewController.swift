@@ -18,8 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var modelLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var carButton: UIButton!
-    var isAdded = false
-    
+    @IBOutlet weak var priceLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -29,6 +28,8 @@ class DetailViewController: UIViewController {
         productImageView.image = UIImage(named: product.image)
         modelLabel.text = product.model
         descriptionTextView.text = product.description
+        priceLabel.text = "$" + String(product.price)
+        
         
     }
     
@@ -40,9 +41,8 @@ class DetailViewController: UIViewController {
     
     @IBAction func addToShoppingCar(_ sender: UIButton) {
         viewController.shoppingCar.addProduct(sneakers: product)
-        isAdded = true
-        if isAdded{
-            carButton.isHidden = true
-        }
+        let alertController = UIAlertController(title: "Producto agregado", message: "Este par ha sido agregago a tu carrito de compras", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true)
     }
 }
